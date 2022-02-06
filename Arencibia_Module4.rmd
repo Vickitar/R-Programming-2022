@@ -1,0 +1,71 @@
+
+#first thing we are doing with the given data is to put it into a matrix so that we can then set up a dataframe with the info
+# matrix(data = NA, nrow = 1, ncol = 1, byrow = FALSE,
+#dimnames = NULL)
+#as.matrix(x, .)
+# S3 method for data.frame
+#as.matrix(x, rownames.force = NA, .)
+#is.matrix(x)
+
+
+```{r}
+patientdata <- matrix(c("0.6","103","bad","low","low","0.3","87","bad","low","high", "0.4","32","bad","high","low","0.4","42","bad","high","high",
+                      "0.2","59","good","low","low",
+                      "0.6","109","good","low","high",
+                      "0.3","78","good","high","low",
+                      "0.4","205","good","high","high",
+                      "0.9","135", "good","high","high",
+                      "0.2","176","bad","high","high"), 10, byrow = TRUE)
+
+```
+
+
+# Now that we have a matrix of 10 rows and our data is orginized we will create the dataframe and call it patientdf. This will allow us to use the information. 
+
+```{r}
+
+patientdf <- data.frame(patientdata)
+colnames(patientdf) <- c("Freq", "Bloodp", "First", "Second", "FinalDecision")
+
+
+
+```
+
+# Once we have the rows named & the df set we will check what the structure is. 
+#It is all set to characters but in order to use the information we need to set them to numeric. 
+
+
+```{r}
+str(patientdf)
+
+patientdf$Freq <- as.numeric(patientdf$Freq)
+str(patientdf)
+patientdf$Bloodp <- as.numeric(patientdf$Bloodp)
+str(patientdf)
+patientdf$First <- as.factor(patientdf$First)
+str(patientdf)
+patientdf$Second <- as.factor(patientdf$Second)
+str(patientdf)
+patientdf$FinalDecision <- as.factor(patientdf$FinalDecision)
+```
+
+# Dat Frame is now set so i'll load up the library for ggplot to in order to boxplot the data. Ill also plot it on a histogram. 
+
+```{r}
+#install.packages("ggplot2")
+
+
+ggplot(patientdf, aes(x=First, y= Bloodp)) + geom_boxplot() + ggtitle("General Doctor Assesments")
+
+
+ggplot(patientdf, aes(x=Second, y= Bloodp)) + geom_boxplot() + ggtitle("Second Doctor Assesments")
+
+
+ggplot(patientdf, aes(x=FinalDecision, y= Bloodp)) + geom_boxplot() + ggtitle("Final Decision")
+
+
+
+```
+# At this point in my R programming learning things are starting to click at lot quicker. This class coupled with the Data/Text munging my R programming skills are improving quickly.  
+
+
