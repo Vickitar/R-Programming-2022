@@ -1,0 +1,53 @@
+# This weeks assignment we covered two subjets in data modeling (univariate, bivariate, and multivariate), and Linear Algebra. It's quite impressive the ability and power that R is capable of when 
+# it comes to maths. 
+# Out assignemnt for this week is the following.
+________
+#Find the value of inverse of a matrix, determinant of a matrix by using the following values:
+#A=matrix(1:100, nrow=10)
+#B=matrix(1:1000, nrow=10)
+
+```{r}
+A <- matrix(1:100, nrow=10)
+B <- matrix(1:1000, nrow=10)
+
+head(A)
+
+head(B)
+
+#?solve
+
+#solve(a)
+
+```
+
+# we used the solve function which solves the equation a %*% x = b for x, where b can be either a vector or a matrix. Using this functin with a gave us an error code stating the following 
+# " Error in solve.default(a) : Lapack routine dgesv: system is exactly singular: U[6,6] = 0" meaning it does not have an inverse. Same with B. I had toruble getting the inverse so I reflected on the reading
+# and searched online for help regarding inverses of matrixs. I loaded up the MASS library and this showed the code we were looking for for matrix A & B. 
+
+```{r}
+library(MASS)
+A <- matrix(1:100, nrow=10)
+ginv(A)
+
+svd(A)
+
+
+ginv(B)
+
+svd(B
+    )
+```
+
+# we followed up by loading the matlib package and using the det function. This calculates the determinant of a matrix. findin
+
+```{r}
+library(MASS)
+A <- matrix(1:100, nrow=10)
+ginv(A)
+
+svd(A)
+
+
+
+```
+
