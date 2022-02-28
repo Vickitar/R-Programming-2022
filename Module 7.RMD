@@ -1,0 +1,53 @@
+Module # 7 assignment
+
+Download any type of data (from the web or use datasets package) or create your own set. 
+Then, on the second step, determine if generic function as discussed in this module can be assigned to your data set, and if not, why? (Example, here is list of data set in R)
+data("mtcars")
+head (mtcars, 6)
+list(mtcars, 6)
+In third and last step, explore if S3 and S4 can be assigned to your data set.
+In your blog, discuss the following questions:
+
+
+
+How do you tell what OO system (S3 vs. S4) an object is associated with?
+
+How do you determine the base type (like integer or list) of an object?
+
+What is a generic function?
+
+What are the main differences between S3 and S4?
+
+In your GitHub, create two examples of S3 and S4.
+
+# The data set ill be using is data("ToothGrowth")
+```{r}
+data("ToothGrowth")
+head(ToothGrowth)
+
+# lets create classes.
+
+s3 <- list(len = 5.6, supp = "VC", dose = 1.0)
+s3
+# Here we've binded s3 to the data set of ToothGrowth with the s3 we've created above. 
+rbind(ToothGrowth, s3)
+
+
+```
+
+
+
+How do you tell what OO system (S3 vs. S4) an object is associated with?
+run the isS4() line and if false then it is s3. if it's true then it will be a s4. 
+
+How do you determine the base type (like integer or list) of an object?
+use a function such as typeof()
+
+What is a generic function?
+Used to etermine the class and select the correct method (function), its a collection of functions. 
+
+What are the main differences between S3 and S4?
+s3 is the original R structure for classes and is informal, yet very interactive. It's mostly a set of naming conventions. It consists of a list. 
+S4 are much more formal and rigorous and less interactive. It was developed later with the goal of adding safety. 
+
+
