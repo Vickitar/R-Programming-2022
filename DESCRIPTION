@@ -1,0 +1,10 @@
+Package: Arencibia
+Type: Package
+Title: UMI, Tower & Device Remover
+Version: 0.1.0
+Author: Victor Arencibia 
+Maintainer: arencibiav@gmail.com 
+Description: This Package receives input by the user about a device location in Lynx code and spits out readable code in R to be used for processing and sorting data. 
+License: CCO
+Encoding: UTF-8
+LazyData: true
