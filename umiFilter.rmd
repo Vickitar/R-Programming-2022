@@ -1,0 +1,33 @@
+
+#For my project I've decided to create a R package that Id be able to use for my current role as a QA Analyst. This package will sort through a file and remove unnecessary lettering and spit out a 
+#workable variable that I can paste into another program for work. First we will load up the librarys we will need. 
+
+```{r}
+
+library(readxl)
+library(tidyverse)
+library(purrr)
+library(stringi)
+```
+
+# I imported the data set file Ill be using to test my script and make sure its all working appropriatlly. 
+```{r}
+
+umifile <- read_excel("umifile.xlsx")
+View(umifile)
+
+umifile1 <- umifile
+```
+# The following is the code written to remove all the lettering and only keep the numbers from all sites
+
+```{r}
+
+
+umifile1$Sites <- stri_replace_all_regex(umifile1$Sites, pattern = c("umi-s","t","m","au","d","ch","sc"), replacement=c('','','','','','',''),
+vectorize=FALSE)
+
+
+```
+
+# The final result gives us a data set without any of the lettering and only leaves the numeric values followed by dashes. This allows me a easy format to copy/paste into 
+# a unix console for work to remote into sites and troubleshoot issues. 
